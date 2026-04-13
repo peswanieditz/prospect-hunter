@@ -1,19 +1,18 @@
+
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") {
     return { statusCode: 405, body: "Method not allowed" };
   }
-
   try {
     const { system, user } = JSON.parse(event.body);
-
-    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+    const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": "Bearer " + process.env.OPENROUTER_API_KEY,
+        "Authorization": "Bearer " + process.env.GROQ_API_KEY,
       },
       body: JSON.stringify({
-        model: "meta-llama/llama-3.3-70b-instruct:free",
+        model: "llama-3.3-70b-versatile",
         messages: [
           { role: "system", content: system },
           { role: "user", content: user }
@@ -22,9 +21,7 @@ exports.handler = async (event) => {
         max_tokens: 1200
       }),
     });
-
     const data = await response.json();
-
     if (!response.ok) {
       return {
         statusCode: response.status,
@@ -32,15 +29,10 @@ exports.handler = async (event) => {
         body: JSON.stringify({ error: data.error?.message || "API error" }),
       };
     }
-
     const text = data.choices[0].message.content;
-
     return {
       statusCode: 200,
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
+      headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
       body: JSON.stringify({ content: [{ text }] }),
     };
   } catch (err) {
@@ -51,4 +43,3 @@ exports.handler = async (event) => {
     };
   }
 };
-
