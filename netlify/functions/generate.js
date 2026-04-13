@@ -1,25 +1,25 @@
-exports.handler = async (event) => {
+exorts.handler = async (event) => {
   if (event.httpMethod !== "POST") {
     return { statusCode: 405, body: "Method not allowed" };
   }
 
-  const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || "*";
-
   try {
     const { system, user } = JSON.parse(event.body);
 
-    const response = await fetch("https://api.anthropic.com/v1/messages", {
+    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "x-api-key": process.env.ANTHROPIC_API_KEY,
-        "anthropic-version": "2023-06-01",
+        "Authorization": "Bearer " + process.env.OPENROUTER_API_KEY,
       },
       body: JSON.stringify({
-        model: "claude-haiku-4-5-20251001",
-        max_tokens: 1200,
-        system,
-        messages: [{ role: "user", content: user }],
+        model: "meta-llama/llama-3.3-70b-instruct:free",
+        messages: [
+          { role: "system", content: system },
+          { role: "user", content: user }
+        ],
+        temperature: 0.7,
+        max_tokens: 1200
       }),
     });
 
@@ -28,24 +28,27 @@ exports.handler = async (event) => {
     if (!response.ok) {
       return {
         statusCode: response.status,
-        headers: { "Access-Control-Allow-Origin": ALLOWED_ORIGIN },
+        headers: { "Access-Control-Allow-Origin": "*" },
         body: JSON.stringify({ error: data.error?.message || "API error" }),
       };
     }
+
+    const text = data.choices[0].message.content;
 
     return {
       statusCode: 200,
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
+        "Access-Control-Allow-Origin": "*",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify({ content: [{ text }] }),
     };
   } catch (err) {
     return {
       statusCode: 500,
-      headers: { "Access-Control-Allow-Origin": ALLOWED_ORIGIN },
+      headers: { "Access-Control-Allow-Origin": "*" },
       body: JSON.stringify({ error: err.message }),
     };
   }
 };
+
