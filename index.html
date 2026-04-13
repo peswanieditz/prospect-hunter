@@ -4,47 +4,40 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Prospect Hunter — Cold Outreach Suite</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{background:#0D0D0D;color:#E8E4DC;font-family:'Fraunces',serif;min-height:100vh;overflow-x:hidden}
-body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.032;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size:180px}
-body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
-  background-image:linear-gradient(rgba(255,255,255,.016) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.016) 1px,transparent 1px);
-  background-size:54px 54px}
-.blob{position:fixed;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(232,160,32,.05) 0%,transparent 70%);top:-200px;right:-200px;pointer-events:none;z-index:0}
-.wrap{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:60px 20px 100px}
-.badge{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#E8A020;border:1px solid rgba(232,160,32,.2);padding:4px 10px;display:inline-block;margin-bottom:20px;background:rgba(232,160,32,.04)}
-h1{font-size:clamp(44px,8vw,80px);font-weight:700;line-height:.93;letter-spacing:-.03em;margin-bottom:16px}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(255,255,255,.016) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.016) 1px,transparent 1px);background-size:54px 54px}
+.blob{position:fixed;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(232,160,32,.06) 0%,transparent 70%);top:-200px;right:-200px;pointer-events:none;z-index:0}
+.wrap{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:56px 20px 100px}
+.badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#E8A020;border:1px solid rgba(232,160,32,.2);padding:4px 10px;display:inline-block;margin-bottom:20px;background:rgba(232,160,32,.04)}
+h1{font-size:clamp(42px,8vw,76px);font-weight:700;line-height:.93;letter-spacing:-.03em;margin-bottom:14px}
 h1 em{color:#E8A020;font-style:italic}
-.subtitle{font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(232,228,220,.38);line-height:1.75;max-width:380px;margin-bottom:36px}
-.tabs{display:flex;gap:2px;border-bottom:1px solid #191919;margin-bottom:0}
-.tab{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;background:transparent;border:none;cursor:pointer;color:rgba(232,228,220,.28);padding:10px 20px;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .2s}
-.tab:hover{color:rgba(232,228,220,.55)}
+.subtitle{font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(232,228,220,.36);line-height:1.75;margin-bottom:36px}
+.tabs{display:flex;gap:2px;border-bottom:1px solid #191919}
+.tab{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;background:transparent;border:none;cursor:pointer;color:rgba(232,228,220,.26);padding:10px 18px;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .2s}
+.tab:hover{color:rgba(232,228,220,.5)}
 .tab.active{color:#E8A020;border-bottom-color:#E8A020;font-weight:600}
 .module{padding-top:28px;display:none}
-.module.active{display:block;animation:fadein .4s ease forwards}
-.desc{font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(232,228,220,.38);line-height:1.75;margin-bottom:28px;max-width:520px}
-.fields{display:flex;flex-direction:column;gap:16px}
+.module.active{display:block;animation:fadein .35s ease forwards}
+.desc{font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(232,228,220,.36);line-height:1.75;margin-bottom:26px;max-width:500px}
+.fields{display:flex;flex-direction:column;gap:15px}
 .field{display:flex;flex-direction:column;gap:7px}
-.field label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(232,228,220,.38)}
+.field label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(232,228,220,.36)}
 .field input,.field textarea,.field select{background:#111;border:1px solid #1d1d1d;color:#E8E4DC;padding:11px 14px;font-family:'JetBrains Mono',monospace;font-size:13px;outline:none;width:100%;transition:border-color .2s,background .2s}
-.field input:focus,.field textarea:focus,.field select:focus{border-color:rgba(232,160,32,.45);background:rgba(232,160,32,.025)}
-.field textarea{resize:vertical;min-height:90px}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:rgba(232,160,32,.4);background:rgba(232,160,32,.02)}
+.field textarea{resize:vertical;min-height:88px}
 .field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23555' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
 ::placeholder{color:rgba(232,228,220,.2)}
 .gen-btn{width:100%;padding:15px 24px;background:#E8A020;color:#0D0D0D;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:all .2s;margin-top:10px}
 .gen-btn:hover:not(:disabled){background:#f0b030;transform:translateY(-1px)}
 .gen-btn:disabled{opacity:.35;cursor:not-allowed}
 .back-btn{padding:15px 18px;background:transparent;color:rgba(232,228,220,.35);font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.08em;border:1px solid #1d1d1d;cursor:pointer;transition:all .2s}
-.back-btn:hover{color:rgba(232,228,220,.6)}
 .reset-btn{font-family:'JetBrains Mono',monospace;font-size:10px;background:none;border:none;color:rgba(232,228,220,.22);cursor:pointer;transition:color .2s;padding:10px 0;letter-spacing:.1em}
 .reset-btn:hover{color:rgba(232,228,220,.55)}
 .copy-btn{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;background:#1a1a1a;border:1px solid #2a2a2a;color:rgba(232,228,220,.4);padding:5px 12px;cursor:pointer;transition:all .2s;flex-shrink:0;white-space:nowrap}
-.copy-btn:hover{background:#222;color:rgba(232,228,220,.7)}
 .copy-btn.done{background:rgba(74,222,128,.08);border-color:rgba(74,222,128,.25);color:#4ade80}
 .card{background:#111;border:1px solid #1c1c1c;padding:20px}
 .result-block{margin-top:28px;display:flex;flex-direction:column;gap:14px;animation:fadein .4s ease forwards}
@@ -54,8 +47,6 @@ h1 em{color:#E8A020;font-style:italic}
 .flag-box{padding:14px;background:#0f0f0f;border:1px solid #1a1a1a;display:flex;flex-direction:column;gap:8px}
 .flag-lbl{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px;display:block}
 .flag-item{font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(232,228,220,.6);line-height:1.55;display:flex;align-items:flex-start;gap:7px}
-.verdict{font-size:15px;line-height:1.75;color:rgba(232,228,220,.85);margin-bottom:10px}
-.next-move{font-family:'JetBrains Mono',monospace;font-size:12px;color:#E8A020;line-height:1.6}
 .opener-card{background:#111;border:1px solid #1c1c1c;padding:20px}
 .opener-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
 .opener-type{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#E8A020}
@@ -63,8 +54,7 @@ h1 em{color:#E8A020;font-style:italic}
 .tip-box{padding:16px 20px;border-left:2px solid #E8A020;background:rgba(232,160,32,.04)}
 .tip-lbl{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#E8A020;display:block;margin-bottom:8px}
 .tip-txt{font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(232,228,220,.55);line-height:1.7}
-.script-card{background:#111;border:1px solid #1c1c1c;border-top:2px solid;overflow:hidden;transition:border-color .2s}
-.script-card:hover{border-color:#2a2a2a}
+.script-card{background:#111;border:1px solid #1c1c1c;border-top:2px solid;overflow:hidden}
 .script-top{display:flex;justify-content:space-between;align-items:flex-start;padding:16px 20px;border-bottom:1px solid #1c1c1c}
 .script-type{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
 .script-angle{font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(232,228,220,.3)}
@@ -85,7 +75,7 @@ h1 em{color:#E8A020;font-style:italic}
 @keyframes fadein{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 @keyframes spin{to{transform:rotate(360deg)}}
 .spinner{display:inline-block;animation:spin 1s linear infinite}
-@media(max-width:520px){.flags-row{grid-template-columns:1fr}.qual-row{flex-direction:column}.tabs{overflow-x:auto}.tab{white-space:nowrap;font-size:10px;padding:10px 14px}}
+@media(max-width:520px){.flags-row{grid-template-columns:1fr}.qual-row{flex-direction:column}.tabs{overflow-x:auto}.tab{white-space:nowrap;font-size:10px;padding:10px 12px}}
 </style>
 </head>
 <body>
@@ -107,7 +97,7 @@ h1 em{color:#E8A020;font-style:italic}
     <div class="fields">
       <div class="field"><label>Your niche</label><input type="text" id="q-niche" placeholder="e.g. ghostwriting for B2B SaaS founders on X (Twitter)"/></div>
       <div class="field"><label>Your offer</label><input type="text" id="q-offer" placeholder="e.g. I write 20 posts/month that grow their audience and generate inbound leads"/></div>
-      <div class="field"><label>Prospect's bio</label><textarea id="q-bio" rows="4" placeholder="e.g. Bootstrapped SaaS founder. 2.4k Twitter followers. Building an AI tool for agencies. Posts about startup life. Recently complained about content taking too much time."></textarea></div>
+      <div class="field"><label>Prospect's bio</label><textarea id="q-bio" rows="4" placeholder="e.g. Bootstrapped SaaS founder. 2.4k Twitter followers. Building an AI tool for agencies. Recently tweeted about content taking too much time."></textarea></div>
     </div>
     <button class="gen-btn" onclick="runQualifier()">Qualify This Lead</button>
     <div id="q-err" class="err-msg" style="display:none"></div>
@@ -118,7 +108,7 @@ h1 em{color:#E8A020;font-style:italic}
     <p class="desc">The first line decides everything. Get 3 openers that reference your prospect specifically.</p>
     <div class="fields">
       <div class="field"><label>What do you do? (one line)</label><input type="text" id="o-about" placeholder="e.g. I help e-com brands fix their landing page copy to cut CAC"/></div>
-      <div class="field"><label>Prospect's bio — the more specific, the better</label><textarea id="o-bio" rows="4" placeholder="e.g. 7-figure DTC brand owner. Posts about paid ads and scaling. Recent tweet: 'Our ROAS dropped 40% since iOS 17.' Launching a Shopify course next month."></textarea></div>
+      <div class="field"><label>Prospect's bio — the more specific, the better</label><textarea id="o-bio" rows="4" placeholder="e.g. 7-figure DTC brand owner. Posts about paid ads. Recent tweet: 'Our ROAS dropped 40% since iOS 17.' Launching a Shopify course next month."></textarea></div>
     </div>
     <button class="gen-btn" onclick="runOpener()">Generate 3 Openers</button>
     <div id="o-err" class="err-msg" style="display:none"></div>
@@ -141,8 +131,8 @@ h1 em{color:#E8A020;font-style:italic}
       <div class="btn-row"><button class="gen-btn" onclick="sNext(2)">Continue →</button></div>
     </div>
     <div id="s-step2" class="fields" style="display:none">
-      <div class="field"><label>Who's your dream client? Be specific</label><input type="text" id="s-client" placeholder="e.g. Coaches making $5-20k/month, under 1k followers, already have clients but want inbound leads"/></div>
-      <div class="field"><label>Prospect's bio or describe their situation</label><textarea id="s-bio" rows="5" placeholder="e.g. Business coach for women entrepreneurs. Just launched a group program at $2k. Posts twice a month. Last 3 posts about content overwhelm got solid engagement."></textarea></div>
+      <div class="field"><label>Who's your dream client? Be specific</label><input type="text" id="s-client" placeholder="e.g. Coaches making $5-20k/month, under 1k followers, want inbound leads"/></div>
+      <div class="field"><label>Prospect's bio or describe their situation</label><textarea id="s-bio" rows="5" placeholder="e.g. Business coach for women entrepreneurs. Just launched a group program at $2k. Posts twice a month. Last posts about content overwhelm got solid engagement."></textarea></div>
       <div class="field"><label>Have you engaged with this person before?</label>
         <select id="s-engaged"><option>Never, fully cold</option><option>Liked/commented a few times</option><option>We've talked briefly before</option></select></div>
       <div class="btn-row"><button class="back-btn" onclick="sBack(1)">← Back</button><button class="gen-btn" onclick="sNext(3)">Continue →</button></div>
@@ -161,95 +151,109 @@ h1 em{color:#E8A020;font-style:italic}
     <div id="s-result" style="display:none"></div>
   </div>
 </div>
+
 <script>
-async function callAPI(sys,user){
-  const res=await fetch('/api/generate',{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({system:sys,user})
+const GROQ_KEY = "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";
+const GROQ_MODEL = "meta-llama/llama-3.3-70b-instruct:free";
+
+async function callAI(sys, user) {
+  const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Authorization": "Bearer " + GROQ_KEY },
+    body: JSON.stringify({
+      model: GROQ_MODEL,
+      messages: [{ role: "system", content: sys }, { role: "user", content: user }],
+      temperature: 0.7,
+      max_tokens: 1200
+    })
   });
-  const data=await res.json();
-  if(!res.ok)throw new Error(data.error||'Server error');
-  return data.content?.map(b=>b.text||'').join('')||'';
-}
-function parseJSON(t){try{return JSON.parse(t.replace(/```json|```/g,'').trim())}catch{return null}}
-function showErr(id,msg){const e=document.getElementById(id);e.textContent=msg;e.style.display='block'}
-function hideErr(id){document.getElementById(id).style.display='none'}
-function setLoading(btn,yes){btn.disabled=yes;if(yes){btn._orig=btn._orig||btn.innerHTML;btn.innerHTML='<span class="spinner">◈</span> Generating...'}else{btn.innerHTML=btn._orig}}
-function copyText(text,btn){navigator.clipboard.writeText(text).then(()=>{btn.textContent='✓ Copied';btn.classList.add('done');setTimeout(()=>{btn.textContent='Copy';btn.classList.remove('done')},2000)})}
-function switchTab(id,btn){document.querySelectorAll('.module').forEach(m=>m.classList.remove('active'));document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));document.getElementById('mod-'+id).classList.add('active');btn.classList.add('active')}
-function scoreRing(score){const r=36,circ=2*Math.PI*r,fill=(score/100)*circ,c=score>=70?'#4ade80':score>=40?'#E8A020':'#f87171',lbl=score>=70?'Hot Lead':score>=40?'Warm Lead':'Cold Lead';return`<div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex-shrink:0"><svg width="86" height="86" viewBox="0 0 86 86"><circle cx="43" cy="43" r="${r}" fill="none" stroke="#1c1c1c" stroke-width="5"/><circle cx="43" cy="43" r="${r}" fill="none" stroke="${c}" stroke-width="5" stroke-dasharray="${fill} ${circ}" stroke-linecap="round" transform="rotate(-90 43 43)"/><text x="43" y="48" text-anchor="middle" fill="${c}" font-size="18" font-weight="700" font-family="Fraunces,serif">${score}</text></svg><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:${c};letter-spacing:.12em;text-transform:uppercase">${lbl}</span></div>`}
-
-async function runQualifier(){
-  const btn=document.querySelector('#mod-qualifier .gen-btn');
-  hideErr('q-err');document.getElementById('q-result').style.display='none';
-  const niche=document.getElementById('q-niche').value.trim(),offer=document.getElementById('q-offer').value.trim(),bio=document.getElementById('q-bio').value.trim();
-  if(!niche||!offer||!bio){showErr('q-err','Fill in all three fields first.');return}
-  setLoading(btn,true);
-  try{
-    const sys=`You are a blunt lead qualification specialist. Return ONLY valid JSON, no markdown, nothing else.`;
-    const prompt=`Sender niche: ${niche}\nSender offer: ${offer}\nProspect bio: ${bio}\n\nReturn JSON:\n{"score":<0-100>,"verdict":"<2 punchy sentences with specific bio details>","greenFlags":["<specific>","<specific>"],"redFlags":["<specific>"],"nextMove":"<one concrete action>"}`;
-    const d=parseJSON(await callAPI(sys,prompt));
-    if(!d)throw new Error('parse error');
-    const flags=(arr,col,arr2)=>(arr||[]).map(f=>`<div class="flag-item"><span style="color:${col}">${arr2}</span>${f}</div>`).join('');
-    document.getElementById('q-result').innerHTML=`<div class="card qual-row">${scoreRing(d.score)}<div style="flex:1"><p class="verdict">${d.verdict}</p><p class="next-move">→ ${d.nextMove}</p></div></div><div class="flags-row"><div class="flag-box"><span class="flag-lbl" style="color:#4ade80">Green flags</span>${flags(d.greenFlags,'#4ade80','↑ ')}</div><div class="flag-box"><span class="flag-lbl" style="color:#f87171">Red flags</span>${flags(d.redFlags,'#f87171','↓ ')}</div></div>`;
-    document.getElementById('q-result').style.display='flex';
-  }catch(e){showErr('q-err','Generation failed. Try again in a moment.')}
-  finally{setLoading(btn,false)}
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.error?.message || "API error");
+  return data.choices[0].message.content;
 }
 
-async function runOpener(){
-  const btn=document.querySelector('#mod-opener .gen-btn');
-  hideErr('o-err');document.getElementById('o-result').style.display='none';
-  const about=document.getElementById('o-about').value.trim(),bio=document.getElementById('o-bio').value.trim();
-  if(!about||!bio){showErr('o-err','Fill in both fields first.');return}
-  setLoading(btn,true);
-  try{
-    const sys=`You are the best cold DM opener writer alive. RULES: ZERO em dashes. NEVER start with "I". NEVER say "I hope","love your content","I came across","excited to connect". Each opener references something SPECIFIC from the bio. Max 2 sentences each. Three structurally different openers. Sound like a curious person, not a marketer. Return ONLY valid JSON.`;
-    const prompt=`Sender: ${about}\nProspect bio: ${bio}\n\nReturn JSON:\n{"openers":[{"type":"Observation","line":"<opener>"},{"type":"Curiosity Question","line":"<opener>"},{"type":"Specific Compliment","line":"<opener>"}],"tip":"<1 sentence follow-up tip specific to this prospect>"}`;
-    const d=parseJSON(await callAPI(sys,prompt));
-    if(!d)throw new Error('parse error');
-    const cards=(d.openers||[]).map(o=>`<div class="opener-card"><div class="opener-top"><span class="opener-type">${o.type}</span><button class="copy-btn" onclick="copyText(${JSON.stringify(o.line)},this)">Copy</button></div><p class="opener-line">"${o.line}"</p></div>`).join('');
-    document.getElementById('o-result').innerHTML=cards+(d.tip?`<div class="tip-box"><span class="tip-lbl">Follow-up tip</span><p class="tip-txt">${d.tip}</p></div>`:'');
-    document.getElementById('o-result').style.display='flex';
-  }catch(e){showErr('o-err','Generation failed. Try again in a moment.')}
-  finally{setLoading(btn,false)}
+function parseJSON(t) { try { return JSON.parse(t.replace(/```json|```/g, "").trim()); } catch { return null; } }
+function showErr(id, msg) { const e = document.getElementById(id); e.textContent = msg; e.style.display = "block"; }
+function hideErr(id) { document.getElementById(id).style.display = "none"; }
+function setLoading(btn, yes) { btn.disabled = yes; if (yes) { btn._orig = btn._orig || btn.innerHTML; btn.innerHTML = '<span class="spinner">◈</span> Generating...'; } else { btn.innerHTML = btn._orig; } }
+function copyText(text, btn) { navigator.clipboard.writeText(text).then(() => { btn.textContent = "✓ Copied"; btn.classList.add("done"); setTimeout(() => { btn.textContent = "Copy"; btn.classList.remove("done"); }, 2000); }); }
+function switchTab(id, btn) { document.querySelectorAll(".module").forEach(m => m.classList.remove("active")); document.querySelectorAll(".tab").forEach(t => t.classList.remove("active")); document.getElementById("mod-" + id).classList.add("active"); btn.classList.add("active"); }
+function scoreRing(score) {
+  const r = 36, circ = 2 * Math.PI * r, fill = (score / 100) * circ, c = score >= 70 ? "#4ade80" : score >= 40 ? "#E8A020" : "#f87171", lbl = score >= 70 ? "Hot Lead" : score >= 40 ? "Warm Lead" : "Cold Lead";
+  return `<div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex-shrink:0"><svg width="86" height="86" viewBox="0 0 86 86"><circle cx="43" cy="43" r="${r}" fill="none" stroke="#1c1c1c" stroke-width="5"/><circle cx="43" cy="43" r="${r}" fill="none" stroke="${c}" stroke-width="5" stroke-dasharray="${fill} ${circ}" stroke-linecap="round" transform="rotate(-90 43 43)"/><text x="43" y="48" text-anchor="middle" fill="${c}" font-size="18" font-weight="700" font-family="Fraunces,serif">${score}</text></svg><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:${c};letter-spacing:.12em;text-transform:uppercase">${lbl}</span></div>`;
 }
 
-function updateProgress(s){document.getElementById('s-fill').style.width=[(0),(50),(100)][s-1]+'%';[1,2,3].forEach(n=>{document.getElementById('pd'+n).className='p-dot '+(n<=s?'on':'off');document.getElementById('pl'+n).className='p-label '+(n<=s?'on':'off')})}
-function sNext(to){
-  if(to===2){const s=document.getElementById('s-service').value.trim(),r=document.getElementById('s-result').value.trim(),p=document.getElementById('s-pain').value.trim(),d=document.getElementById('s-diff').value.trim();if(!s||!r||!p||!d){showErr('s-err','Fill in all four fields.');return}}
-  if(to===3){const c=document.getElementById('s-client').value.trim(),b=document.getElementById('s-bio').value.trim();if(!c||!b){showErr('s-err','Fill in both fields.');return}}
-  hideErr('s-err');[1,2,3].forEach(n=>{const el=document.getElementById('s-step'+n);el.style.display=n===to?'flex':'none';if(n===to)el.style.flexDirection='column'});updateProgress(to)
+async function runQualifier() {
+  const btn = document.querySelector("#mod-qualifier .gen-btn");
+  hideErr("q-err"); document.getElementById("q-result").style.display = "none";
+  const niche = document.getElementById("q-niche").value.trim(), offer = document.getElementById("q-offer").value.trim(), bio = document.getElementById("q-bio").value.trim();
+  if (!niche || !offer || !bio) { showErr("q-err", "Fill in all three fields first."); return; }
+  setLoading(btn, true);
+  try {
+    const sys = `You are a blunt lead qualification specialist. Return ONLY valid JSON, no markdown, nothing else.`;
+    const prompt = `Sender niche: ${niche}\nSender offer: ${offer}\nProspect bio: ${bio}\n\nReturn JSON:\n{"score":<0-100>,"verdict":"<2 punchy sentences with specific bio details, no generic phrases>","greenFlags":["<specific signal>","<specific signal>"],"redFlags":["<specific concern>"],"nextMove":"<one concrete action>"}`;
+    const d = parseJSON(await callAI(sys, prompt));
+    if (!d) throw new Error("parse error");
+    const flags = (arr, col, arrow) => (arr || []).map(f => `<div class="flag-item"><span style="color:${col}">${arrow}</span>${f}</div>`).join("");
+    document.getElementById("q-result").innerHTML = `<div class="card qual-row">${scoreRing(d.score)}<div style="flex:1"><p style="font-size:15px;line-height:1.75;color:rgba(232,228,220,.85);margin-bottom:10px">${d.verdict}</p><p style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#E8A020;line-height:1.6">→ ${d.nextMove}</p></div></div><div class="flags-row"><div class="flag-box"><span class="flag-lbl" style="color:#4ade80">Green flags</span>${flags(d.greenFlags, "#4ade80", "↑ ")}</div><div class="flag-box"><span class="flag-lbl" style="color:#f87171">Red flags</span>${flags(d.redFlags, "#f87171", "↓ ")}</div></div>`;
+    document.getElementById("q-result").style.display = "flex";
+  } catch (e) { showErr("q-err", "Generation failed. Try again."); }
+  finally { setLoading(btn, false); }
 }
-function sBack(to){hideErr('s-err');[1,2,3].forEach(n=>{const el=document.getElementById('s-step'+n);el.style.display=n===to?'flex':'none';if(n===to)el.style.flexDirection='column'});updateProgress(to)}
 
-async function runScripts(){
-  const btn=document.querySelector('#s-step3 .gen-btn');
-  hideErr('s-err');document.getElementById('s-result').style.display='none';
-  setLoading(btn,true);
-  try{
-    const f={service:document.getElementById('s-service').value.trim(),result:document.getElementById('s-result').value.trim(),pain:document.getElementById('s-pain').value.trim(),diff:document.getElementById('s-diff').value.trim(),client:document.getElementById('s-client').value.trim(),bio:document.getElementById('s-bio').value.trim(),engaged:document.getElementById('s-engaged').value,goal:document.getElementById('s-goal').value,proof:document.getElementById('s-proof').value.trim()||'none',tone:document.getElementById('s-tone').value,platform:document.getElementById('s-platform').value};
-    const sys=`You are one of the highest-paid cold DM writers alive with a 30-40% reply rate. ABSOLUTE RULES: ZERO em dashes (—). NEVER use: "I hope","I wanted to reach out","I came across","excited","touch base","circle back","leverage","synergy","game-changer","straightforward","delve","I'd love to","looking forward","let's connect". NEVER start 2 sentences in a row with "I". VARY sentence length — short, then one that breathes, short again. Each script MUST reference something SPECIFIC from the prospect bio. Under 120 words each. ONE soft CTA only — never "book a call" as first ask. 70% about THEM, 30% about you. Three genuinely different angles. Sound like a human DM. Return ONLY valid JSON.`;
-    const prompt=`SENDER:\nService: ${f.service}\nResult: ${f.result}\nClient pain: ${f.pain}\nDifferentiator: ${f.diff}\nProof: ${f.proof}\nTone: ${f.tone}\n\nPROSPECT:\nDream client: ${f.client}\nBio: ${f.bio}\nPrior engagement: ${f.engaged}\n\nGoal: ${f.goal}\nPlatform: ${f.platform}\n\nReturn JSON:\n{"scripts":[{"type":"Conversation Starter","angle":"<one-line angle>","script":"<DM>"},{"type":"Pain + Proof","angle":"<one-line angle>","script":"<DM>"},{"type":"Direct Pitch","angle":"<one-line angle>","script":"<DM>"}],"warnings":["<reply-rate concern if any, max 2, or empty array>"]}`;
-    const d=parseJSON(await callAPI(sys,prompt));
-    if(!d)throw new Error('parse error');
-    const colors=['#E8A020','#60a5fa','#a78bfa'];
-    const cards=(d.scripts||[]).map((sc,i)=>`<div class="script-card" style="border-top-color:${colors[i]}"><div class="script-top"><div><span class="script-type" style="color:${colors[i]}">${sc.type}</span><span class="script-angle">${sc.angle}</span></div><button class="copy-btn" onclick="copyText(${JSON.stringify(sc.script)},this)">Copy</button></div><p class="script-body">${sc.script}</p></div>`).join('');
-    const warn=d.warnings?.length?`<div class="warn-box"><span class="warn-lbl">⚠ Watch out for</span>${d.warnings.map(w=>`<p class="warn-item">${w}</p>`).join('')}</div>`:'';
-    document.getElementById('s-result').innerHTML=`<div style="display:flex;flex-direction:column;gap:14px;margin-top:28px">${cards}${warn}<button class="reset-btn" onclick="resetScripts()">← Generate new scripts</button></div>`;
-    document.getElementById('s-result').style.display='block';
-    [1,2,3].forEach(n=>document.getElementById('s-step'+n).style.display='none');
-    document.getElementById('s-progress').style.display='none';
-    document.querySelector('#mod-scripts .desc').style.display='none';
-  }catch(e){showErr('s-err','Generation failed. Try again in a moment.')}
-  finally{setLoading(btn,false)}
+async function runOpener() {
+  const btn = document.querySelector("#mod-opener .gen-btn");
+  hideErr("o-err"); document.getElementById("o-result").style.display = "none";
+  const about = document.getElementById("o-about").value.trim(), bio = document.getElementById("o-bio").value.trim();
+  if (!about || !bio) { showErr("o-err", "Fill in both fields first."); return; }
+  setLoading(btn, true);
+  try {
+    const sys = `You are the best cold DM opener writer alive. RULES: ZERO em dashes. NEVER start with "I". NEVER say "I hope","love your content","I came across","excited to connect". Each opener references something SPECIFIC from the bio. Max 2 sentences. Three structurally different openers. Sound like a curious person not a marketer. Return ONLY valid JSON.`;
+    const prompt = `Sender: ${about}\nProspect bio: ${bio}\n\nReturn JSON:\n{"openers":[{"type":"Observation","line":"<opener>"},{"type":"Curiosity Question","line":"<opener>"},{"type":"Specific Compliment","line":"<opener>"}],"tip":"<1 sentence follow-up tip specific to this prospect>"}`;
+    const d = parseJSON(await callAI(sys, prompt));
+    if (!d) throw new Error("parse error");
+    const cards = (d.openers || []).map(o => `<div class="opener-card"><div class="opener-top"><span class="opener-type">${o.type}</span><button class="copy-btn" onclick="copyText(${JSON.stringify(o.line)},this)">Copy</button></div><p class="opener-line">"${o.line}"</p></div>`).join("");
+    document.getElementById("o-result").innerHTML = cards + (d.tip ? `<div class="tip-box"><span class="tip-lbl">Follow-up tip</span><p class="tip-txt">${d.tip}</p></div>` : "");
+    document.getElementById("o-result").style.display = "flex";
+  } catch (e) { showErr("o-err", "Generation failed. Try again."); }
+  finally { setLoading(btn, false); }
 }
-function resetScripts(){
-  document.getElementById('s-result').style.display='none';
-  document.getElementById('s-progress').style.display='flex';
-  document.querySelector('#mod-scripts .desc').style.display='block';
-  ['s-service','s-result','s-pain','s-diff','s-client','s-bio','s-proof'].forEach(id=>document.getElementById(id).value='');
+
+function updateProgress(s) { document.getElementById("s-fill").style.width = [(0),(50),(100)][s-1] + "%"; [1,2,3].forEach(n => { document.getElementById("pd"+n).className = "p-dot " + (n<=s?"on":"off"); document.getElementById("pl"+n).className = "p-label " + (n<=s?"on":"off"); }); }
+function sNext(to) {
+  if (to===2) { const s=document.getElementById("s-service").value.trim(),r=document.getElementById("s-result").value.trim(),p=document.getElementById("s-pain").value.trim(),d=document.getElementById("s-diff").value.trim(); if(!s||!r||!p||!d){showErr("s-err","Fill in all four fields.");return;} }
+  if (to===3) { const c=document.getElementById("s-client").value.trim(),b=document.getElementById("s-bio").value.trim(); if(!c||!b){showErr("s-err","Fill in both fields.");return;} }
+  hideErr("s-err"); [1,2,3].forEach(n=>{const el=document.getElementById("s-step"+n);el.style.display=n===to?"flex":"none";if(n===to)el.style.flexDirection="column";}); updateProgress(to);
+}
+function sBack(to) { hideErr("s-err"); [1,2,3].forEach(n=>{const el=document.getElementById("s-step"+n);el.style.display=n===to?"flex":"none";if(n===to)el.style.flexDirection="column";}); updateProgress(to); }
+
+async function runScripts() {
+  const btn = document.querySelector("#s-step3 .gen-btn");
+  hideErr("s-err"); document.getElementById("s-result").style.display = "none";
+  setLoading(btn, true);
+  try {
+    const f = { service:document.getElementById("s-service").value.trim(), result:document.getElementById("s-result").value.trim(), pain:document.getElementById("s-pain").value.trim(), diff:document.getElementById("s-diff").value.trim(), client:document.getElementById("s-client").value.trim(), bio:document.getElementById("s-bio").value.trim(), engaged:document.getElementById("s-engaged").value, goal:document.getElementById("s-goal").value, proof:document.getElementById("s-proof").value.trim()||"none", tone:document.getElementById("s-tone").value, platform:document.getElementById("s-platform").value };
+    const sys = `You are one of the highest-paid cold DM writers alive with a 30-40% reply rate. ABSOLUTE RULES: ZERO em dashes. NEVER use: "I hope","I wanted to reach out","I came across","excited","touch base","circle back","leverage","synergy","game-changer","straightforward","delve","I'd love to","looking forward","let's connect". NEVER start 2 sentences in a row with "I". VARY sentence length. Each script references something SPECIFIC from the prospect bio. Under 120 words each. ONE soft CTA only, never "book a call" as first ask. 70% about THEM, 30% about you. Three genuinely different angles. Sound like a human DM. Return ONLY valid JSON.`;
+    const prompt = `SENDER:\nService: ${f.service}\nResult: ${f.result}\nClient pain: ${f.pain}\nDifferentiator: ${f.diff}\nProof: ${f.proof}\nTone: ${f.tone}\n\nPROSPECT:\nDream client: ${f.client}\nBio: ${f.bio}\nPrior engagement: ${f.engaged}\n\nGoal: ${f.goal}\nPlatform: ${f.platform}\n\nReturn JSON:\n{"scripts":[{"type":"Conversation Starter","angle":"<one-line angle>","script":"<DM>"},{"type":"Pain + Proof","angle":"<one-line angle>","script":"<DM>"},{"type":"Direct Pitch","angle":"<one-line angle>","script":"<DM>"}],"warnings":["<reply-rate concern if any, max 2, or empty array>"]}`;
+    const d = parseJSON(await callAI(sys, prompt));
+    if (!d) throw new Error("parse error");
+    const colors = ["#E8A020","#60a5fa","#a78bfa"];
+    const cards = (d.scripts||[]).map((sc,i) => `<div class="script-card" style="border-top-color:${colors[i]}"><div class="script-top"><div><span class="script-type" style="color:${colors[i]}">${sc.type}</span><span class="script-angle">${sc.angle}</span></div><button class="copy-btn" onclick="copyText(${JSON.stringify(sc.script)},this)">Copy</button></div><p class="script-body">${sc.script}</p></div>`).join("");
+    const warn = d.warnings?.length ? `<div class="warn-box"><span class="warn-lbl">⚠ Watch out for</span>${d.warnings.map(w=>`<p class="warn-item">${w}</p>`).join("")}</div>` : "";
+    document.getElementById("s-result").innerHTML = `<div style="display:flex;flex-direction:column;gap:14px;margin-top:28px">${cards}${warn}<button class="reset-btn" onclick="resetScripts()">← Generate new scripts</button></div>`;
+    document.getElementById("s-result").style.display = "block";
+    [1,2,3].forEach(n => document.getElementById("s-step"+n).style.display = "none");
+    document.getElementById("s-progress").style.display = "none";
+    document.querySelector("#mod-scripts .desc").style.display = "none";
+  } catch (e) { showErr("s-err", "Generation failed. Try again."); }
+  finally { setLoading(btn, false); }
+}
+
+function resetScripts() {
+  document.getElementById("s-result").style.display = "none";
+  document.getElementById("s-progress").style.display = "flex";
+  document.querySelector("#mod-scripts .desc").style.display = "block";
+  ["s-service","s-result","s-pain","s-diff","s-client","s-bio","s-proof"].forEach(id => document.getElementById(id).value = "");
   sBack(1);
 }
 </script>
